@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+    {% if user.is_authenticated %}
+    <h2> Welcome {{user.username}} </h2>
+    {% endif %} <br>
+Students Details
+    <table border = "2px">
+        <thead>
+        <th> id </th>
+        <th> Name </th>
+        <th> Regid </th>
+        <th> Address </th>
+        <th> Gender </th>
+        <th> Country</th>
+        <th> Markspercentage </th>
+
+        </thead>
+        {% for i in student_data %}
+        <tr>
+            <td> {{i.id}}</td>
+            <td> {{i.Name}} </td>
+            <td> {{i.Regid}} </td>
+            <td> {{i.Address}} </td>
+            <td> {{i.Gender}} </td>
+            <td> {{i.Country}} </td>
+            <td> {{i.Markspercentage}} </td>
+
+            <td> <a href = '/student/edit/{{i.id}}'> Edit </a> </td>
+            <td> <a href = '/student/delete/{{i.id}}'> Delete </a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if user.is_authenticated %}
+           <a href = '/student/logout/'> Logout </a><br>
+    {% endif %}
+
+    <a href = '/student/create/'> Create </a><br>
+    <a href = '/student/info/'> Information </a><br>
+
+
+</center>
+</body>
+</html>

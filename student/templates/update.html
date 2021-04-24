@@ -1,0 +1,14 @@
+<html>
+<head>
+
+</head>
+<body>
+<form method = "POST" class="post-form"  action="/student/update/{{id}}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> update </button>
+</form>
+</body>
+</html>
+
+
